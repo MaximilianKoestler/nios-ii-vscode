@@ -70,12 +70,8 @@
       "patterns": [
         {
           "name": "comment.line.niosii",
-          "match": "#[^\n]*\n",
+          "match": "\\/\\/[^\n]*\n",
           "patterns": [{ "include": "#FIXME-TODO-XXX" }]
-        },
-        {
-          "name": "comment.block.documentation.niosii",
-          "match": "#\\*[^\n]*\n"
         },
         {
           "name": "comment.block.niosii",

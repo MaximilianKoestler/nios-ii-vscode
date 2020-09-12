@@ -1319,6 +1319,18 @@
     "function": "Return address",
     "name": "r31 / ra"
   },
+  ".abort": {
+    "type": "directive",
+    "description": "This directive stops the assembly immediately. It is for compatibility with other assemblers. The original idea was that the assembly language source would be piped into the assembler. If the sender of the source quit, it could use this directive tells as to quit also. One day `.abort` will not be supported.",
+    "name": ".abort",
+    "usage": ".abort"
+  },
+  ".section": {
+    "type": "directive",
+    "description": "Use the .section directive to assemble the following code into a section named *name*.",
+    "name": ".section",
+    "usage": ".section *name*"
+  },
   "ldb": {
     "type": "alias",
     "alias": "ldb / ldbio"

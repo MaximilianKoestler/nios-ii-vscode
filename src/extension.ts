@@ -20,7 +20,22 @@ export function activate(context: vscode.ExtensionContext) {
       }
 
       const range = document.getWordRangeAtPosition(position);
-      const word = document.getText(range);
+      let word = document.getText(range);
+
+      // include leading "." for directives such as `.section`
+      const before = range?.start.with(
+        range.start.line,
+        range.start.character - 1
+      );
+      if (before !== undefined) {
+        const rangeBefore = range?.with(before, range.start);
+        if (rangeBefore !== undefined) {
+          const textBefore = document.getText(rangeBefore);
+          if (textBefore == ".") {
+            word = "." + word;
+          }
+        }
+      }
 
       const text = hoverText(reference_data, word);
       return text === null

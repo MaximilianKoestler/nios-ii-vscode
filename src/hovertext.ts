@@ -1,5 +1,5 @@
 interface ReferenceEntry {
-  type: "instruction" | "register" | "alias";
+  type: "instruction" | "register" | "directive" | "alias";
 }
 
 interface InstructionEntry extends ReferenceEntry {
@@ -15,6 +15,12 @@ interface InstructionEntry extends ReferenceEntry {
 interface RegisterEntry extends ReferenceEntry {
   name: string;
   function: string;
+}
+
+interface DirectiveEntry extends ReferenceEntry {
+  name: string;
+  description: string;
+  usage: string;
 }
 
 interface AliasEntry extends ReferenceEntry {
@@ -68,10 +74,23 @@ ${register.function}
   return text;
 }
 
+function formatDirective(directive: DirectiveEntry): string {
+  let text = `
+**${directive.usage}**
+
+${directive.description}
+`;
+  return text;
+}
+
 export function hoverText(
   referenceData: ReferenceData,
   word: string
 ): string | null {
+  if (word.length > 32) {
+    return null;
+  }
+
   if (!(word in referenceData)) {
     return null;
   }
@@ -83,6 +102,8 @@ export function hoverText(
       return formatInstruction(reference as InstructionEntry);
     case "register":
       return formatRegister(reference as RegisterEntry);
+    case "directive":
+      return formatDirective(reference as DirectiveEntry);
     case "alias":
       return hoverText(referenceData, (reference as AliasEntry).alias);
     default:

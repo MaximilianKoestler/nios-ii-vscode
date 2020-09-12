@@ -650,14 +650,6 @@
     "operation": "rB \u2190 \u03c3(Mem8[rA + \u03c3(IMM16)])",
     "usage": "Use the ldbio instruction for peripheral I/O. In processors with a data cache, ldbio bypasses the cache and is guaranteed to generate an Avalon-MM data transfer. In processors without a data cache, ldbio acts like ldb. For more information on data cache, refer to the Cache and Tightly Coupled Memory chapter of the Nios II Software Developer\u2019s Handbook."
   },
-  "ldb": {
-    "alias": "ldb / ldbio",
-    "type": "alias"
-  },
-  "ldbio": {
-    "alias": "ldb / ldbio",
-    "type": "alias"
-  },
   "ldbu / ldbuio": {
     "type": "instruction",
     "assemblerSyntax": "ldbu rB, byte_offset(rA)\nldbuio rB, byte_offset(rA)",
@@ -670,14 +662,6 @@
     "mnemonic": "ldbu / ldbuio",
     "operation": "rB \u2190 0x000000 : Mem8[rA + \u03c3(IMM16)]",
     "usage": "In processors with a data cache, this instruction may retrieve the desired data from the cache instead of from memory. Use the ldbuio instruction for peripheral I/O. In processors with a data cache, ldbuio bypasses the cache and is guaranteed to generate an Avalon-MM data transfer. In processors without a data cache, ldbuio acts like ldbu. For more information on data cache, refer to the Cache and Tightly Coupled Memory chapter of the Nios II Software Developer\u2019s Handbook."
-  },
-  "ldbu": {
-    "alias": "ldbu / ldbuio",
-    "type": "alias"
-  },
-  "ldbuio": {
-    "alias": "ldbu / ldbuio",
-    "type": "alias"
   },
   "ldh / ldhio": {
     "type": "instruction",
@@ -692,14 +676,6 @@
     "operation": "rB \u2190 \u03c3(Mem16[rA + \u03c3(IMM16)])",
     "usage": "In processors with a data cache, this instruction may retrieve the desired data from the cache instead of from memory. Use the ldhio instruction for peripheral I/O. In processors with a data cache, ldhio bypasses the cache and is guaranteed to generate an Avalon-MM data transfer. In processors without a data cache, ldhio acts like ldh. For more information on data cache, refer to the Cache and Tightly Coupled Memory chapter of the Nios II Software Developer\u2019s Handbook."
   },
-  "ldh": {
-    "alias": "ldh / ldhio",
-    "type": "alias"
-  },
-  "ldhio": {
-    "alias": "ldh / ldhio",
-    "type": "alias"
-  },
   "ldhu / ldhuio": {
     "type": "instruction",
     "assemblerSyntax": "ldhu rB, byte_offset(rA)\nldhuio rB, byte_offset(rA)",
@@ -713,14 +689,6 @@
     "operation": "rB \u2190 0x0000 : Mem16[rA + \u03c3(IMM16)]",
     "usage": "In processors with a data cache, this instruction may retrieve the desired data from the cache instead of from memory. Use the ldhuio instruction for peripheral I/O. In processors with a data cache, ldhuio bypasses the cache and is guaranteed to generate an Avalon-MM data transfer. In processors without a data cache, ldhuio acts like ldhu. For more information on data cache, refer to the Cache and Tightly Coupled Memory chapter of the Nios II Software Developer\u2019s Handbook."
   },
-  "ldhu": {
-    "alias": "ldhu / ldhuio",
-    "type": "alias"
-  },
-  "ldhuio": {
-    "alias": "ldhu / ldhuio",
-    "type": "alias"
-  },
   "ldw / ldwio": {
     "type": "instruction",
     "assemblerSyntax": "ldw rB, byte_offset(rA)\nldwio rB, byte_offset(rA)",
@@ -733,14 +701,6 @@
     "mnemonic": "ldw / ldwio",
     "operation": "rB \u2190 Mem32[rA + \u03c3(IMM14)]",
     "usage": "In processors with a data cache, this instruction may retrieve the desired data from the cache instead of from memory. Use the ldwio instruction for peripheral I/O. In processors with a data cache, ldwio bypasses the cache and memory. Use the ldwio instruction for peripheral I/O. In processors with a data cache, ldwio bypasses the cache and is guaranteed to generate an Avalon-MM data transfer. In processors without a data cache, ldwio acts like ldw. For more information on data cache, refer to the Cache and Tightly Coupled Memory chapter of the Nios II Software Developer\u2019s Handbook."
-  },
-  "ldw": {
-    "alias": "ldw / ldwio",
-    "type": "alias"
-  },
-  "ldwio": {
-    "alias": "ldw / ldwio",
-    "type": "alias"
   },
   "mov": {
     "type": "instruction",
@@ -1089,14 +1049,6 @@
     "operation": "Mem16[rA + \u03c3(IMM16)] \u2190 rB15..0",
     "usage": "In processors with a data cache, this instruction may not generate an Avalon-MM data transfer immediately. Use the sthio instruction for peripheral I/O. In processors with a data cache, sthio bypasses the cache and is guaranteed to generate an Avalon-MM data transfer. In processors without a data cache, sthio acts like sth."
   },
-  "sth": {
-    "alias": "sth / sthio",
-    "type": "alias"
-  },
-  "sthio": {
-    "alias": "sth / sthio",
-    "type": "alias"
-  },
   "stw / stwio": {
     "type": "instruction",
     "assemblerSyntax": "stw rB, byte_offset(rA)\nstwio rB, byte_offset(rA)",
@@ -1109,14 +1061,6 @@
     "mnemonic": "stw / stwio",
     "operation": "Mem32[rA + \u03c3(IMM16)] \u2190 rB",
     "usage": "In processors with a data cache, this instruction may not generate an Avalon-MM data transfer immediately. Use the stwio instruction for peripheral I/O. In processors with a data cache, stwio bypasses the cache and is guaranteed to generate an Avalon-MM bus cycle. In processors without a data cache, stwio acts like stw."
-  },
-  "stw": {
-    "alias": "stw / stwio",
-    "type": "alias"
-  },
-  "stwio": {
-    "alias": "stw / stwio",
-    "type": "alias"
   },
   "sub": {
     "type": "instruction",
@@ -1214,5 +1158,301 @@
     "instructionType": "I",
     "mnemonic": "xorhi",
     "operation": "rB \u2190 rA ^ (IMM16 : 0x0000)"
+  },
+  "r0 / zero": {
+    "type": "register",
+    "function": "0x00000000",
+    "name": "r0 / zero"
+  },
+  "r1 / at": {
+    "type": "register",
+    "function": "Assembler temporary",
+    "name": "r1 / at"
+  },
+  "r2": {
+    "type": "register",
+    "function": "Return value",
+    "name": "r2"
+  },
+  "r3": {
+    "type": "register",
+    "function": "Return value",
+    "name": "r3"
+  },
+  "r4": {
+    "type": "register",
+    "function": "Register arguments",
+    "name": "r4"
+  },
+  "r5": {
+    "type": "register",
+    "function": "Register arguments",
+    "name": "r5"
+  },
+  "r6": {
+    "type": "register",
+    "function": "Register arguments",
+    "name": "r6"
+  },
+  "r7": {
+    "type": "register",
+    "function": "Register arguments",
+    "name": "r7"
+  },
+  "r8": {
+    "type": "register",
+    "function": "Caller-saved register",
+    "name": "r8"
+  },
+  "r9": {
+    "type": "register",
+    "function": "Caller-saved register",
+    "name": "r9"
+  },
+  "r10": {
+    "type": "register",
+    "function": "Caller-saved register",
+    "name": "r10"
+  },
+  "r11": {
+    "type": "register",
+    "function": "Caller-saved register",
+    "name": "r11"
+  },
+  "r12": {
+    "type": "register",
+    "function": "Caller-saved register",
+    "name": "r12"
+  },
+  "r13": {
+    "type": "register",
+    "function": "Caller-saved register",
+    "name": "r13"
+  },
+  "r14": {
+    "type": "register",
+    "function": "Caller-saved register",
+    "name": "r14"
+  },
+  "r15": {
+    "type": "register",
+    "function": "Caller-saved register",
+    "name": "r15"
+  },
+  "r16": {
+    "type": "register",
+    "function": "Caller-saved register",
+    "name": "r16"
+  },
+  "r17": {
+    "type": "register",
+    "function": "Caller-saved register",
+    "name": "r17"
+  },
+  "r18": {
+    "type": "register",
+    "function": "Caller-saved register",
+    "name": "r18"
+  },
+  "r19": {
+    "type": "register",
+    "function": "Caller-saved register",
+    "name": "r19"
+  },
+  "r20": {
+    "type": "register",
+    "function": "Caller-saved register",
+    "name": "r20"
+  },
+  "r21": {
+    "type": "register",
+    "function": "Caller-saved register",
+    "name": "r21"
+  },
+  "r22": {
+    "type": "register",
+    "function": "Caller-saved register",
+    "name": "r22"
+  },
+  "r23": {
+    "type": "register",
+    "function": "Caller-saved register",
+    "name": "r23"
+  },
+  "r24 / et": {
+    "type": "register",
+    "function": "Exception temporary",
+    "name": "r24 / et"
+  },
+  "r25 / bt": {
+    "type": "register",
+    "function": "Breakpoint temporary",
+    "name": "r25 / bt"
+  },
+  "r26 / gb": {
+    "type": "register",
+    "function": "Global pointer",
+    "name": "r26 / gb"
+  },
+  "r27 / sp": {
+    "type": "register",
+    "function": "Stack pointer",
+    "name": "r27 / sp"
+  },
+  "r28 / fp": {
+    "type": "register",
+    "function": "Frame pointer",
+    "name": "r28 / fp"
+  },
+  "r29 / ea": {
+    "type": "register",
+    "function": "Exception return address",
+    "name": "r29 / ea"
+  },
+  "r30 / sstatus": {
+    "type": "register",
+    "function": "Status register",
+    "name": "r30 / sstatus"
+  },
+  "r31 / ra": {
+    "type": "register",
+    "function": "Return address",
+    "name": "r31 / ra"
+  },
+  "ldb": {
+    "type": "alias",
+    "alias": "ldb / ldbio"
+  },
+  "ldbio": {
+    "type": "alias",
+    "alias": "ldb / ldbio"
+  },
+  "ldbu": {
+    "type": "alias",
+    "alias": "ldbu / ldbuio"
+  },
+  "ldbuio": {
+    "type": "alias",
+    "alias": "ldbu / ldbuio"
+  },
+  "ldh": {
+    "type": "alias",
+    "alias": "ldh / ldhio"
+  },
+  "ldhio": {
+    "type": "alias",
+    "alias": "ldh / ldhio"
+  },
+  "ldhu": {
+    "type": "alias",
+    "alias": "ldhu / ldhuio"
+  },
+  "ldhuio": {
+    "type": "alias",
+    "alias": "ldhu / ldhuio"
+  },
+  "ldw": {
+    "type": "alias",
+    "alias": "ldw / ldwio"
+  },
+  "ldwio": {
+    "type": "alias",
+    "alias": "ldw / ldwio"
+  },
+  "sth": {
+    "type": "alias",
+    "alias": "sth / sthio"
+  },
+  "sthio": {
+    "type": "alias",
+    "alias": "sth / sthio"
+  },
+  "stw": {
+    "type": "alias",
+    "alias": "stw / stwio"
+  },
+  "stwio": {
+    "type": "alias",
+    "alias": "stw / stwio"
+  },
+  "r0": {
+    "type": "alias",
+    "alias": "r0 / zero"
+  },
+  "zero": {
+    "type": "alias",
+    "alias": "r0 / zero"
+  },
+  "r1": {
+    "type": "alias",
+    "alias": "r1 / at"
+  },
+  "at": {
+    "type": "alias",
+    "alias": "r1 / at"
+  },
+  "r24": {
+    "type": "alias",
+    "alias": "r24 / et"
+  },
+  "et": {
+    "type": "alias",
+    "alias": "r24 / et"
+  },
+  "r25": {
+    "type": "alias",
+    "alias": "r25 / bt"
+  },
+  "bt": {
+    "type": "alias",
+    "alias": "r25 / bt"
+  },
+  "r26": {
+    "type": "alias",
+    "alias": "r26 / gb"
+  },
+  "gb": {
+    "type": "alias",
+    "alias": "r26 / gb"
+  },
+  "r27": {
+    "type": "alias",
+    "alias": "r27 / sp"
+  },
+  "sp": {
+    "type": "alias",
+    "alias": "r27 / sp"
+  },
+  "r28": {
+    "type": "alias",
+    "alias": "r28 / fp"
+  },
+  "fp": {
+    "type": "alias",
+    "alias": "r28 / fp"
+  },
+  "r29": {
+    "type": "alias",
+    "alias": "r29 / ea"
+  },
+  "ea": {
+    "type": "alias",
+    "alias": "r29 / ea"
+  },
+  "r30": {
+    "type": "alias",
+    "alias": "r30 / sstatus"
+  },
+  "sstatus": {
+    "type": "alias",
+    "alias": "r30 / sstatus"
+  },
+  "r31": {
+    "type": "alias",
+    "alias": "r31 / ra"
+  },
+  "ra": {
+    "type": "alias",
+    "alias": "r31 / ra"
   }
 }

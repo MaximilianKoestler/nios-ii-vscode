@@ -12,6 +12,11 @@ interface InstructionEntry extends ReferenceEntry {
   usage?: string;
 }
 
+interface RegisterEntry extends ReferenceEntry {
+  name: string;
+  function: string;
+}
+
 interface AliasEntry extends ReferenceEntry {
   alias: string;
 }
@@ -54,6 +59,15 @@ ${uppercaseFirst(instruction.usage)}
   return text;
 }
 
+function formatRegister(register: RegisterEntry): string {
+  let text = `
+**${register.name}**
+
+${register.function}
+`;
+  return text;
+}
+
 export function hoverText(
   referenceData: ReferenceData,
   word: string
@@ -67,6 +81,8 @@ export function hoverText(
   switch (reference.type) {
     case "instruction":
       return formatInstruction(reference as InstructionEntry);
+    case "register":
+      return formatRegister(reference as RegisterEntry);
     case "alias":
       return hoverText(referenceData, (reference as AliasEntry).alias);
     default:
